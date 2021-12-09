@@ -34,9 +34,3 @@ class Reimbursements:
             "acceptedDate": self.accepted_date,
             "userID": self.user_id
         }
-
-
-new_reimburse = Reimbursements(1, 'Leia', 'Organa', 20.00, 'Travel gas', datetime(2021, 12, 9), 'pending', 'null',
-                               datetime(2021, 1, 1), 1)
-print(new_reimburse)
-print(new_reimburse.make_reimbursement_dictionary())
