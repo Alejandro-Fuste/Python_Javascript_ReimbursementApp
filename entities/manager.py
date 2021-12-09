@@ -1,4 +1,4 @@
-class Employee:
+class CompanyUser:
     def __init__(self, employee_id: int, first_name: str, last_name: str, company_role: str, user_name: str,
                  user_password: str):
         self.employee_id = employee_id
