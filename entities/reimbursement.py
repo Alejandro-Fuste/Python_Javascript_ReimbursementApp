@@ -1,4 +1,4 @@
-class Reimbursements:
+class Reimbursement:
     def __init__(self, reimbursement_id: int, reimbursement_amount: float, reimbursement_reason: str,
                  reimbursement_date: str, status: str, reject_reason: str, accepted_date: str,
                  employee_id: int, manager_id: int):
