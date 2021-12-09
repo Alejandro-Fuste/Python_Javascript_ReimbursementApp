@@ -21,4 +21,3 @@ class Employee:
             "userName": self.user_name,
             "userPassword": self.user_password
         }
-

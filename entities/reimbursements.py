@@ -1,9 +1,6 @@
-from datetime import datetime
-
-
 class Reimbursements:
     def __init__(self, reimbursement_id: int, reimbursement_amount: float, reimbursement_reason: str,
-                 reimbursement_date: datetime, status: str, reject_reason: str, accepted_date: datetime,
+                 reimbursement_date: str, status: str, reject_reason: str, accepted_date: str,
                  employee_id: int, manager_id: int):
         self.reimbursement_id = reimbursement_id
         self.reimbursement_amount = reimbursement_amount
