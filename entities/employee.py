@@ -9,12 +9,12 @@ class Employee:
         self.user_password = user_password
 
     def __str__(self):
-        return f'user id:{self.employee_id}, first name: {self.first_name}, last name: {self.last_name}, ' \
+        return f'employee id:{self.employee_id}, first name: {self.first_name}, last name: {self.last_name}, ' \
                f'company role: {self.company_role}, user name: {self.user_name}, password: {self.user_password}'
 
     def make_company_user_dictionary(self):
         return {
-            "userId": self.employee_id,
+            "employeeId": self.employee_id,
             "firstName": self.first_name,
             "lastName": self.last_name,
             "companyRole": self.company_role,
