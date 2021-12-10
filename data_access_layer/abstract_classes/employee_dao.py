@@ -13,4 +13,3 @@ class EmployeeDAO(ABC):
     @abstractmethod
     def get_employee_by_username(self) -> Employee:
         pass
-    
