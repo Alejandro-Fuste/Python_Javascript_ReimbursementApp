@@ -27,3 +27,14 @@ class Employee:
             "userPassword": self.user_password,
             "reimbursements": self.reimbursements,
         }
+
+# new_employee = Employee(1, 'Rey', 'Skywalker', 'Employee', 'NinjaCatGirl',
+#                         'JakkuJedi1', [{'reimbursementId': 1, 'reimbursementAmount': 20.0, 'reimbursementReason':
+#         'Travel gas', 'status': 'pending', 'rejectReason': 'null', 'acceptedDate': 'null', 'employeeID': 1,
+#                                         'managerID': 1}, {'reimbursementId': 2, 'reimbursementAmount': 2000.0,
+#                                                           'reimbursementReason': 'Hotel stay', 'status': 'rejected',
+#                                                           'rejectReason': '12-5-2021', 'acceptedDate':
+#                                                               'The amount of your reimbursement exceed your budget',
+#                                                           'employeeID': 1, 'managerID': 1}])
+# print(new_employee)
+# print(new_employee.make_company_user_dictionary())

@@ -29,3 +29,13 @@ class Reimbursement:
             "employeeID": self.employee_id,
             "managerID": self.manager_id
         }
+
+#
+# new_reim = Reimbursement(1, 20.00, 'Travel gas', '12-9-2021', 'pending', 'null', 'null', 1, 1)
+# print(new_reim)
+# print(new_reim.make_reimbursement_dictionary())
+#
+# new_reim_two = Reimbursement(2, 2000.00, 'Hotel stay', '11-15-2021', 'rejected', '12-5-2021',
+#                              'The amount of your reimbursement exceed your budget', 1, 1)
+# print(new_reim_two)
+# print(new_reim_two.make_reimbursement_dictionary())
