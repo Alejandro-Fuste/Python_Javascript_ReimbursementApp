@@ -25,7 +25,7 @@ class Employee:
             "companyRole": self.company_role,
             "userName": self.user_name,
             "userPassword": self.user_password,
-            "reimbursements": self.reimbursements,
+            "reimbursements": self.reimbursements
         }
 
 # new_employee = Employee(1, 'Rey', 'Skywalker', 'Employee', 'NinjaCatGirl',
