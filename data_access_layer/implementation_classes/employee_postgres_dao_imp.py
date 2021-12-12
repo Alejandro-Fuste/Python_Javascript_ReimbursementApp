@@ -4,5 +4,5 @@ from utils.database_connection import connection
 
 
 class EmployeePostgresDAO(EmployeeDAO):
-    def get_employee_by_username(self) -> Employee:
+    def get_employee_by_username(self, user_name: str) -> Employee:
         pass
