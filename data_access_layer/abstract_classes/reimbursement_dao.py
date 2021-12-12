@@ -45,5 +45,3 @@ class ReimbursementDAO(ABC):
     @abstractmethod
     def get_top_five_highest_amounts(self) -> List[Reimbursement]:
         pass
-
-
