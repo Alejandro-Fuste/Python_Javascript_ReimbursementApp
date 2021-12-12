@@ -3,7 +3,7 @@ from entities.employee import Employee
 
 employee_dao = EmployeePostgresDAO()
 
-sample_user_name = 'Master Jedi'
+sample_user_name = 'NinjaCatGirl'
 
 
 def test_get_employee_by_username():
