@@ -17,7 +17,7 @@ class ReimbursementDAO(ABC):
 
     # to view all the employees reimbursements
     @abstractmethod
-    def get_reimbursements_by_employee_id(self) -> List[Reimbursement]:
+    def get_reimbursements_by_employee_id(self, employee_id: int) -> List[Reimbursement]:
         pass
 
     # for manager to approve/deny and leave comments

@@ -1,7 +1,7 @@
 class Reimbursement:
     def __init__(self, reimbursement_id: int, reimbursement_amount: float, reimbursement_reason: str,
                  reimbursement_date: str, status: str, reject_reason: str, accepted_date: str, category: str,
-                 employee_name: str, manager_name: str):
+                 employee_first_name: str, employee_last_name: str, manager_first_name: str, manager_last_name: str):
         self.reimbursement_id = reimbursement_id
         self.reimbursement_amount = reimbursement_amount
         self.reimbursement_reason = reimbursement_reason
@@ -10,14 +10,17 @@ class Reimbursement:
         self.accepted_date = accepted_date
         self.reject_reason = reject_reason
         self.category = category
-        self.employee_name = employee_name
-        self.manager_name = manager_name
+        self.employee_first_name = employee_first_name
+        self.employee_last_name = employee_last_name
+        self.manager_first_name = manager_first_name
+        self.manager_last_name = manager_last_name
 
     def __str__(self):
         return f'reimbursement id: {self.reimbursement_id},\nreimbursement amount: {self.reimbursement_amount},\n' \
                f'reimbursement reason:{self.reimbursement_reason},\nstatus: {self.status},\nrejectReason: ' \
                f'{self.reject_reason},\naccepted date: {self.accepted_date},\ncategory: {self.category},\n' \
-               f'employee ID: {self.employee_name},\nmanager ID: {self.manager_name}'
+               f'employee first name: {self.employee_first_name},\nemployee last name: {self.employee_last_name}\n' \
+               f'manager first name: {self.manager_first_name}\nmanager last name: {self.manager_last_name}'
 
     def make_reimbursement_dictionary(self):
         return {
@@ -28,8 +31,10 @@ class Reimbursement:
             "rejectReason": self.reject_reason,
             "acceptedDate": self.accepted_date,
             "category": self.category,
-            "employeeName": self.employee_name,
-            "managerName": self.manager_name
+            "employeeFirstName": self.employee_first_name,
+            "employeeLastName": self.employee_last_name,
+            "managerFirstName": self.manager_first_name,
+            "managerLastName": self.manager_last_name
         }
 
 #

@@ -12,7 +12,7 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
     def get_all_reimbursement_requests(self) -> List[Reimbursement]:
         pass
 
-    def get_reimbursements_by_employee_id(self) -> List[Reimbursement]:
+    def get_reimbursements_by_employee_id(self, employee_id: int) -> List[Reimbursement]:
         pass
 
     def update_reimbursement_request(self, reimbursement: Reimbursement) -> Reimbursement:
