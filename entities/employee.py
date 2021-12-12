@@ -31,8 +31,8 @@ class Employee:
         }
 
 
-new_employee = Employee(1, 'Rey', 'Skywalker', 'Employee', 'NinjaCatGirl',
-                        'JakkuJedi1')
-print(new_employee)
-print(new_employee.make_employee_dictionary())
-print(new_employee.return_employee_credentials())
+# new_employee = Employee(1, 'Rey', 'Skywalker', 'Employee', 'NinjaCatGirl',
+#                         'JakkuJedi1')
+# print(new_employee)
+# print(new_employee.make_employee_dictionary())
+# print(new_employee.return_employee_credentials())
