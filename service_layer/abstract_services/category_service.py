@@ -6,5 +6,5 @@ from entities.category import Category
 
 class CategoryService(ABC):
     @abstractmethod
-    def get_all_categories(self) -> List[Category]:
+    def service_get_all_categories(self) -> List[Category]:
         pass
