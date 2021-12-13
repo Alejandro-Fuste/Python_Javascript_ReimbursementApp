@@ -70,7 +70,7 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         total_amount = cursor.fetchone()
         return int(total_amount)
 
-    def get_total_reimbursements_amount_by_category(self) -> float:
+    def get_total_reimbursements_amount_by_category(self, category: str) -> float:
         pass
 
     def get_top_five_highest_amounts(self) -> List[Reimbursement]:

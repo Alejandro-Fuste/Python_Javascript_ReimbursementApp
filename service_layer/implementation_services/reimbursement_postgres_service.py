@@ -29,7 +29,7 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
     def service_get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
         pass
 
-    def service_get_total_reimbursements_amount_by_category(self) -> float:
+    def service_get_total_reimbursements_amount_by_category(self, category: str) -> float:
         pass
 
     def service_get_top_five_highest_amounts(self) -> List[Reimbursement]:

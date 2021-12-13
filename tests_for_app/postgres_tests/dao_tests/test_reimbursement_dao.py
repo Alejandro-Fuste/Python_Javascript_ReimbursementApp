@@ -9,6 +9,7 @@ updated_reimbursement = Reimbursement(0, 100.00, 'Gas', 'Travel gas', '12-9-2021
                                       'null', 'Rey', 'Skywalker', 'Luke', 'Skywalker')
 begin_date = '12-1-2021'
 end_date = '12-31-2021'
+category = 'Gas'
 
 
 def test_create_new_reimbursement_request():
@@ -47,7 +48,7 @@ def test_get_total_reimbursements_amount_by_month():
 
 
 def test_get_total_reimbursements_amount_by_category():
-    category_total = reimbursement_dao.get_total_reimbursements_amount_by_category()
+    category_total = reimbursement_dao.get_total_reimbursements_amount_by_category(category)
     assert category_total > 0
 
 

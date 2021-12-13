@@ -39,7 +39,7 @@ class ReimbursementDAO(ABC):
         pass
 
     @abstractmethod
-    def get_total_reimbursements_amount_by_category(self) -> float:
+    def get_total_reimbursements_amount_by_category(self, category: str) -> float:
         pass
 
     @abstractmethod
