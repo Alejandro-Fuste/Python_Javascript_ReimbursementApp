@@ -87,5 +87,5 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         for reimbursement in reimbursement_records:
             reimbursement_list.append(Reimbursement(*reimbursement))
         return reimbursement_list
-    
+
 
