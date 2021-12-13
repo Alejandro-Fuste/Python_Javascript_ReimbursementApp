@@ -14,4 +14,3 @@ def test_get_employee_by_username():
 def test_get_all_managers():
     managers = manager_dao.get_all_managers()
     assert len(managers) > 0
-    
