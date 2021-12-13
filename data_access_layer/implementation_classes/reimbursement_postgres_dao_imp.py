@@ -63,7 +63,7 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         return int(total_amount)
 
     def get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
-        sql = 'select sum(reimbursement_amount) from reimbursement where decision_date >= %s ' \
+        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where decision_date >= %s ' \
               'and decision_date <= %s'
         cursor = connection.cursor()
         cursor.execute(sql, (begin_date, end_date))
@@ -71,7 +71,11 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         return int(total_amount)
 
     def get_total_reimbursements_amount_by_category(self, category: str) -> float:
-        pass
+        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where category = %s'
+        cursor = connection.cursor()
+        cursor.execute(sql, [category])
+        total_amount = cursor.fetchone()
+        return int(total_amount)
 
     def get_top_five_highest_amounts(self) -> List[Reimbursement]:
         pass
