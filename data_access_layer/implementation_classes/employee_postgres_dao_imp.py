@@ -5,4 +5,9 @@ from utils.database_connection import connection
 
 class EmployeePostgresDAO(EmployeeDAO):
     def get_employee_by_username(self, user_name: str) -> Employee:
-        pass
+        sql = 'select * from "python_reimbursement".employee where user_name = %s'
+        cursor = connection.cursor()
+        cursor.execute(sql, [user_name])
+        employee_record = cursor.fetchone()
+        employee = Employee(*employee_record)
+        return employee
