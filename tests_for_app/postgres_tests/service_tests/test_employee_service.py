@@ -1,4 +1,4 @@
 from custom_exceptions.invalid_credentials_exception import InvalidCredentialsException
 from data_access_layer.implementation_classes.employee_postgres_dao_imp import EmployeePostgresDAO
 from entities.employee import Employee
-from service_layer.abstract_services.employee_service import EmployeeService
+from service_layer.implementation_services.employee_postgres_service import EmployeePostgresService
