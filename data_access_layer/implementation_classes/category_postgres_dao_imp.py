@@ -8,4 +8,11 @@ from utils.database_connection import connection
 class CategoryPostgresDao(CategoryDao):
 
     def get_all_categories(self) -> List[Category]:
-        pass
+        sql = 'select * from "python_reimbursement".category'
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        category_records = cursor.fetchall()
+        category_list = []
+        for category in category_records:
+            category_list.append(Category(*category))
+        return category_list
