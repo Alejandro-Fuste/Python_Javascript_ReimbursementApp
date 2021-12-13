@@ -7,6 +7,7 @@ from utils.database_connection import connection
 
 class ReimbursementPostgresDAO(ReimbursementDAO):
     def create_new_reimbursement_request(self, reimbursement: Reimbursement) -> Reimbursement:
+        # sql =
         pass
 
     def get_all_reimbursement_requests(self) -> List[Reimbursement]:
