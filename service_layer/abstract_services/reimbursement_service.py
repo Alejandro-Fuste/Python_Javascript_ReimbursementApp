@@ -31,7 +31,7 @@ class ReimbursementService(ABC):
         pass
 
     @abstractmethod
-    def service_get_total_reimbursements_amount_by_employee(self) -> float:
+    def service_get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         pass
 
     @abstractmethod

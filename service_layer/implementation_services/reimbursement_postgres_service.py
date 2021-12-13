@@ -23,7 +23,7 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
     def service_get_total_reimbursements_amount(self) -> float:
         pass
 
-    def service_get_total_reimbursements_amount_by_employee(self) -> float:
+    def service_get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         pass
 
     def service_get_total_reimbursements_amount_by_month(self) -> float:

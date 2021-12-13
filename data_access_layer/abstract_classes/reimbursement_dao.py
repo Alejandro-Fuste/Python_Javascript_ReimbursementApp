@@ -31,7 +31,7 @@ class ReimbursementDAO(ABC):
         pass
 
     @abstractmethod
-    def get_total_reimbursements_amount_by_employee(self) -> float:
+    def get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         pass
 
     @abstractmethod
