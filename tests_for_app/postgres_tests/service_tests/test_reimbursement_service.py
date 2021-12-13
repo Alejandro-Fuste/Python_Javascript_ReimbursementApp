@@ -1,3 +1,4 @@
+from custom_exceptions.employee_not_found_exception import EmployeeNotFoundException
 from custom_exceptions.duplicate_reimbursement_exception import DuplicateReimbursementException
 from data_access_layer.implementation_classes.reimbursement_postgres_dao_imp import ReimbursementPostgresDAO
 from entities.reimbursement import Reimbursement
@@ -16,3 +17,11 @@ def test_catch_duplicate_reimbursement_request():
         assert False
     except DuplicateReimbursementException as e:
         assert str(e) == "This reimbursement has already been created."
+
+
+def test_catch_get_reimbursements_by_employee_id_request():
+    try:
+        reimbursement_service.service_get_reimbursements_by_employee_id(100)
+        assert False
+    except EmployeeNotFoundException as e:
+        assert str(e) == "This reimbursement was not found."
