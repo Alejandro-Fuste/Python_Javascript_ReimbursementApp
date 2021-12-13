@@ -35,7 +35,7 @@ class ReimbursementDAO(ABC):
         pass
 
     @abstractmethod
-    def get_total_reimbursements_amount_by_month(self) -> float:
+    def get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
         pass
 
     @abstractmethod

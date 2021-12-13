@@ -26,7 +26,7 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
     def service_get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         pass
 
-    def service_get_total_reimbursements_amount_by_month(self) -> float:
+    def service_get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
         pass
 
     def service_get_total_reimbursements_amount_by_category(self) -> float:

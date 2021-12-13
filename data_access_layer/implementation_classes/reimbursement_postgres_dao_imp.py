@@ -56,14 +56,19 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         return int(total_amount)
 
     def get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
-        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where employee_id = 1'
+        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where employee_id = %s'
         cursor = connection.cursor()
-        cursor.execute(sql)
+        cursor.execute(sql, [employee_id])
         total_amount = cursor.fetchone()
         return int(total_amount)
 
-    def get_total_reimbursements_amount_by_month(self) -> float:
-        sql = 'select sum(reimbursement_amount) from reimbursement where employee_id = 1'
+    def get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
+        sql = 'select sum(reimbursement_amount) from reimbursement where decision_date >= %s ' \
+              'and decision_date <= %s'
+        cursor = connection.cursor()
+        cursor.execute(sql, (begin_date, end_date))
+        total_amount = cursor.fetchone()
+        return int(total_amount)
 
     def get_total_reimbursements_amount_by_category(self) -> float:
         pass
