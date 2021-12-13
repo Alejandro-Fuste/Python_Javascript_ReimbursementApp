@@ -49,7 +49,7 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         return reimbursement
 
     def get_total_reimbursements_amount(self) -> float:
-        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement'
+        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where status = "approved"'
         cursor = connection.cursor()
         cursor.execute(sql)
         total_amount = cursor.fetchone()
@@ -78,4 +78,14 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         return int(total_amount)
 
     def get_top_five_highest_amounts(self) -> List[Reimbursement]:
-        pass
+        sql = 'select * from "python_reimbursement".reimbursement where status = "approved" order by ' \
+              'reimbursement_amount desc limit 5'
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        reimbursement_records = cursor.fetchall()
+        reimbursement_list = []
+        for reimbursement in reimbursement_records:
+            reimbursement_list.append(Reimbursement(*reimbursement))
+        return reimbursement_list
+    
+
