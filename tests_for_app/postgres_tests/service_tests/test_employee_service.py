@@ -14,4 +14,4 @@ def test_employee_not_found_for_get_employee_by_username():
         employee_service.service_get_employee_by_username(non_employee)
         assert False
     except InvalidCredentialsException as e:
-        assert str(e) == "The provide credentials are invalid."
+        assert str(e) == "The provided credentials are invalid."
