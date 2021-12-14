@@ -5,9 +5,9 @@ from entities.employee import Employee
 class EmployeeService(ABC):
     # for login purposes
     @abstractmethod
-    def service_get_employee_by_username(self, user_name: str) -> Employee:
+    def service_validate_employee(self, user_name: str, password: str) -> Employee:
         pass
 
     @abstractmethod
-    def get_all_employees(self):
+    def service_get_all_employees(self):
         pass
