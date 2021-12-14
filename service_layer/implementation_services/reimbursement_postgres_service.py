@@ -1,4 +1,5 @@
 from custom_exceptions.duplicate_reimbursement_exception import DuplicateReimbursementException
+from custom_exceptions.employee_not_found_exception import EmployeeNotFoundException
 from data_access_layer.implementation_classes.reimbursement_postgres_dao_imp import ReimbursementPostgresDAO
 from entities.reimbursement import Reimbursement
 from service_layer.abstract_services.reimbursement_service import ReimbursementService
@@ -21,7 +22,11 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
         return self.reimbursement_dao.get_all_reimbursement_requests()
 
     def service_get_reimbursements_by_employee_id(self, employee_id: int) -> List[Reimbursement]:
-        pass
+        reimbursements = self.reimbursement_dao.get_all_reimbursement_requests()
+        for current_reimbursement in reimbursements:
+            if current_reimbursement.employee_id == employee_id:
+                return self.reimbursement_dao.get_reimbursements_by_employee_id(employee_id)
+            raise EmployeeNotFoundException("This reimbursement was not found.")
 
     def service_update_reimbursement_request(self, reimbursement: Reimbursement) -> Reimbursement:
         pass
