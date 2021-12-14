@@ -29,7 +29,11 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
             raise EmployeeNotFoundException("This reimbursement was not found.")
 
     def service_update_reimbursement_request(self, reimbursement: Reimbursement) -> Reimbursement:
-        pass
+        reimbursements = self.reimbursement_dao.get_all_reimbursement_requests()
+        for current_reimbursement in reimbursements:
+            if current_reimbursement.reimbursement_id == reimbursement.reimbursement_id:
+                return self.reimbursement_dao.update_reimbursement_request(reimbursement)
+        raise EmployeeNotFoundException("This reimbursement was not found.")
 
     def service_get_total_reimbursements_amount(self) -> float:
         pass
