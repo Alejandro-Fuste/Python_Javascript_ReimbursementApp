@@ -18,7 +18,7 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
         return created_reimbursement
 
     def service_get_all_reimbursement_requests(self) -> List[Reimbursement]:
-        pass
+        return self.reimbursement_dao.get_all_reimbursement_requests()
 
     def service_get_reimbursements_by_employee_id(self, employee_id: int) -> List[Reimbursement]:
         pass
