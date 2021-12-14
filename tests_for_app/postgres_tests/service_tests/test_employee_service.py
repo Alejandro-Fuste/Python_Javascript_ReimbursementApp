@@ -9,7 +9,7 @@ employee_service = EmployeePostgresServiceImp(employee_dao)
 non_employee = 'anakin_skywalker'
 
 
-def test_employee_not_found_for_get_employee_by_username():
+def test_employee_validation():
     try:
         employee_service.service_get_employee_by_username(non_employee)
         assert False
