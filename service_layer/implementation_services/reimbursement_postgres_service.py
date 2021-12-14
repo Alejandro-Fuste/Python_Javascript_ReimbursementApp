@@ -26,7 +26,7 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
         for current_reimbursement in reimbursements:
             if current_reimbursement.employee_id == employee_id:
                 return self.reimbursement_dao.get_reimbursements_by_employee_id(employee_id)
-            raise EmployeeNotFoundException("This reimbursement was not found.")
+        raise EmployeeNotFoundException("This reimbursement was not found.")
 
     def service_update_reimbursement_request(self, reimbursement: Reimbursement) -> Reimbursement:
         reimbursements = self.reimbursement_dao.get_all_reimbursement_requests()
@@ -43,13 +43,13 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
         for current_reimbursement in reimbursements:
             if current_reimbursement.employee_id == employee_id:
                 return self.reimbursement_dao.get_total_reimbursements_amount_by_employee(employee_id)
-            raise EmployeeNotFoundException("This reimbursement was not found.")
+        raise EmployeeNotFoundException("This reimbursement was not found.")
 
     def service_get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
         pass
 
     def service_get_total_reimbursements_amount_by_category(self, category: str) -> float:
-        pass
+        return self.reimbursement_dao.get_total_reimbursements_amount_by_category(category)
 
     def service_get_top_five_highest_amounts(self) -> List[Reimbursement]:
-        pass
+        return self.reimbursement_dao.get_top_five_highest_amounts()
