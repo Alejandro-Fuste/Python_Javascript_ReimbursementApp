@@ -13,4 +13,4 @@ class ManagerPostgresServiceImp(ManagerService):
         pass
 
     def get_all_managers(self) -> List[Manager]:
-        pass
+        return self.manager_dao.get_all_managers()
