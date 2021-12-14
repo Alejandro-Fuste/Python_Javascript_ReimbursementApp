@@ -36,3 +36,11 @@ def test_catch_reimbursement_not_found_update_reimbursement():
         assert False
     except EmployeeNotFoundException as e:
         assert str(e) == "This reimbursement was not found."
+
+
+def test_catch_get_total_reimbursements_by_employee_id_request():
+    try:
+        reimbursement_service.service_get_total_reimbursements_amount_by_employee(100)
+        assert False
+    except EmployeeNotFoundException as e:
+        assert str(e) == "This reimbursement was not found."
