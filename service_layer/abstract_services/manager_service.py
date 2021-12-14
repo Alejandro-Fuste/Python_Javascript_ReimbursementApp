@@ -7,7 +7,7 @@ from entities.manager import Manager
 class ManagerService(ABC):
     # for login purposes
     @abstractmethod
-    def service_get_manager_by_username(self, user_name: str) -> Manager:
+    def service_validate_manager(self, user_name: str, password: str) -> Manager:
         pass
 
     @abstractmethod
