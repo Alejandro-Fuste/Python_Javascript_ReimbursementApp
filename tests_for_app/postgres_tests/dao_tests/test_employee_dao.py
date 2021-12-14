@@ -9,3 +9,8 @@ sample_user_name = 'NinjaCatGirl'
 def test_get_employee_by_username():
     user = employee_dao.get_employee_by_username(sample_user_name)
     assert user.user_name == sample_user_name
+
+
+def test_get_all_employees():
+    users = employee_dao.get_all_employees()
+    assert len(users) > 0

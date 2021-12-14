@@ -11,3 +11,6 @@ class EmployeePostgresDAO(EmployeeDAO):
         employee_record = cursor.fetchone()
         employee = Employee(*employee_record)
         return employee
+
+    def get_all_employees(self):
+        pass

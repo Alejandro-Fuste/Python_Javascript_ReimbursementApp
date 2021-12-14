@@ -10,3 +10,6 @@ class EmployeePostgresServiceImp(EmployeeService):
 
     def service_get_employee_by_username(self, user_name: str) -> Employee:
         pass
+
+    def get_all_employees(self):
+        pass
