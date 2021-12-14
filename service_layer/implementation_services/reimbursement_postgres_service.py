@@ -1,3 +1,4 @@
+from custom_exceptions.duplicate_reimbursement_exception import DuplicateReimbursementException
 from data_access_layer.implementation_classes.reimbursement_postgres_dao_imp import ReimbursementPostgresDAO
 from entities.reimbursement import Reimbursement
 from service_layer.abstract_services.reimbursement_service import ReimbursementService
@@ -9,7 +10,12 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
         self.reimbursement_dao = reimbursement_dao
 
     def service_create_new_reimbursement_request(self, reimbursement: Reimbursement) -> Reimbursement:
-        pass
+        reimbursements = self.reimbursement_dao.get_all_reimbursement_requests()
+        for current_reimbursement in reimbursements:
+            if current_reimbursement.decision_date == reimbursement.decision_date:
+                raise DuplicateReimbursementException("This reimbursement has already been created.")
+        created_reimbursement = self.reimbursement_dao.create_new_reimbursement_request(reimbursement)
+        return created_reimbursement
 
     def service_get_all_reimbursement_requests(self) -> List[Reimbursement]:
         pass

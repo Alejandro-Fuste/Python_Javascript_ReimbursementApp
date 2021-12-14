@@ -8,7 +8,7 @@ reimbursement_dao = ReimbursementPostgresDAO()
 reimbursement_service = ReimbursementPostgresServiceImp(reimbursement_dao)
 
 duplicate_reimbursement = Reimbursement(1, 20.00, 'Gas', 'Travel gas', '12-9-2021', 'pending', 'null', 'null',
-                                        'Rey', 'Skywalker', 'Luke', 'Skywalker')
+                                        1, 1)
 
 
 def test_catch_duplicate_reimbursement_request():
