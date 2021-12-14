@@ -10,6 +10,9 @@ reimbursement_service = ReimbursementPostgresServiceImp(reimbursement_dao)
 duplicate_reimbursement = Reimbursement(1, 20.00, 'Gas', 'Travel gas', '12-9-2021', 'pending', 'null', 'null',
                                         1, 1)
 
+non_existent_reimbursement = Reimbursement(100, 20.00, 'Gas', 'Travel gas', '12-9-2021', 'pending', 'null', 'null',
+                                           1, 1)
+
 
 def test_catch_duplicate_reimbursement_request():
     try:
@@ -22,6 +25,14 @@ def test_catch_duplicate_reimbursement_request():
 def test_catch_get_reimbursements_by_employee_id_request():
     try:
         reimbursement_service.service_get_reimbursements_by_employee_id(100)
+        assert False
+    except EmployeeNotFoundException as e:
+        assert str(e) == "This reimbursement was not found."
+
+
+def test_catch_reimbursement_not_found_update_reimbursement():
+    try:
+        reimbursement_service.service_update_reimbursement_request(non_existent_reimbursement)
         assert False
     except EmployeeNotFoundException as e:
         assert str(e) == "This reimbursement was not found."
