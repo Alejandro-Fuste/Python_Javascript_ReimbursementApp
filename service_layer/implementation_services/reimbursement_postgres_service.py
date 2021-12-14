@@ -36,7 +36,7 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
         raise EmployeeNotFoundException("This reimbursement was not found.")
 
     def service_get_total_reimbursements_amount(self) -> float:
-        pass
+        return self.reimbursement_dao.get_total_reimbursements_amount()
 
     def service_get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         pass
