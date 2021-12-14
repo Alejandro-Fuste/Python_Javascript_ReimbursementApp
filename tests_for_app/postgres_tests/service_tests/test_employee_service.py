@@ -6,12 +6,13 @@ from service_layer.implementation_services.employee_postgres_service import Empl
 employee_dao = EmployeePostgresDAO()
 employee_service = EmployeePostgresServiceImp(employee_dao)
 
-non_employee = 'anakin_skywalker'
+non_employee_username = 'anakin_skywalker'
+non_employee_password = 'darkside'
 
 
 def test_employee_validation():
     try:
-        employee_service.service_get_employee_by_username(non_employee)
+        employee_service.service_validate_employee(non_employee_username, non_employee_password)
         assert False
     except InvalidCredentialsException as e:
         assert str(e) == "The provided credentials are invalid."
