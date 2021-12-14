@@ -3,10 +3,10 @@ from entities.reimbursement import Reimbursement
 
 reimbursement_dao = ReimbursementPostgresDAO()
 reimbursement: Reimbursement = Reimbursement(0, 20.00, 'Gas', 'Travel gas', '12-9-2021', 'pending', 'null',
-                                             'null', 'Rey', 'Skywalker', 'Luke', 'Skywalker')
+                                             'null', 1, 1)
 
 updated_reimbursement = Reimbursement(0, 100.00, 'Gas', 'Travel gas', '12-9-2021', 'pending', 'null',
-                                      'null', 'Rey', 'Skywalker', 'Luke', 'Skywalker')
+                                      'null', 1, 1)
 begin_date = '12-1-2021'
 end_date = '12-31-2021'
 category = 'Gas'
@@ -29,7 +29,7 @@ def test_get_reimbursements_by_employee_id():
 
 def test_update_reimbursement_request():
     updated_request = reimbursement_dao.update_reimbursement_request(updated_reimbursement)
-    assert updated_request.employee_last_name == updated_reimbursement.employee_last_name
+    assert updated_request.employee_id == updated_reimbursement.employee_id
 
 
 def test_get_total_reimbursements_amount():
