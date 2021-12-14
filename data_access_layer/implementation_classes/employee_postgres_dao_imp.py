@@ -13,4 +13,11 @@ class EmployeePostgresDAO(EmployeeDAO):
         return employee
 
     def get_all_employees(self):
-        pass
+        sql = 'select * from "python_reimbursement".employee order by employee_id'
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        employee_records = cursor.fetchall()
+        employees = []
+        for employee in employee_records:
+            employees.append(Employee(*employee))
+        return employees
