@@ -38,15 +38,15 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
     def service_get_total_reimbursements_amount(self) -> float:
         return self.reimbursement_dao.get_total_reimbursements_amount()
 
+    def get_rejected_reimbursements(self) -> List[Reimbursement]:
+        return self.reimbursement_dao.get_rejected_reimbursements()
+
     def service_get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         reimbursements = self.reimbursement_dao.get_all_reimbursement_requests()
         for current_reimbursement in reimbursements:
             if current_reimbursement.employee_id == employee_id:
                 return self.reimbursement_dao.get_total_reimbursements_amount_by_employee(employee_id)
         raise EmployeeNotFoundException("This reimbursement was not found.")
-
-    def service_get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
-        pass
 
     def service_get_total_reimbursements_amount_by_category(self, category: str) -> float:
         return self.reimbursement_dao.get_total_reimbursements_amount_by_category(category)

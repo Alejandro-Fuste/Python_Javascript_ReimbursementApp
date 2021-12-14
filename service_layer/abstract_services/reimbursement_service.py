@@ -31,11 +31,11 @@ class ReimbursementService(ABC):
         pass
 
     @abstractmethod
-    def service_get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
+    def get_rejected_reimbursements(self) -> List[Reimbursement]:
         pass
 
     @abstractmethod
-    def service_get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
+    def service_get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         pass
 
     @abstractmethod
@@ -45,3 +45,7 @@ class ReimbursementService(ABC):
     @abstractmethod
     def service_get_top_five_highest_amounts(self) -> List[Reimbursement]:
         pass
+
+    # @abstractmethod
+    # def service_get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
+    #     pass
