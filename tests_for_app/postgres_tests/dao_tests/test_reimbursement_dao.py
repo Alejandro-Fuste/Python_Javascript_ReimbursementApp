@@ -42,9 +42,9 @@ def test_get_total_reimbursements_amount_by_employee():
     assert employee_total > 0
 
 
-def test_get_total_reimbursements_amount_by_month():
-    monthly_total = reimbursement_dao.get_total_reimbursements_amount_by_month(begin_date, end_date)
-    assert monthly_total > 0
+def test_get_rejected_reimbursements():
+    reimbursements = reimbursement_dao.get_rejected_reimbursements()
+    assert len(reimbursements) > 1
 
 
 def test_get_total_reimbursements_amount_by_category():

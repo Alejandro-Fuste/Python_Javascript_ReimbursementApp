@@ -55,18 +55,20 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         total_amount = cursor.fetchone()
         return int(total_amount)
 
+    def get_rejected_reimbursements(self) -> List[Reimbursement]:
+        sql = 'select * from "python_reimbursement".reimbursement where status = "rejected" order by employee_id;'
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        reimbursement_records = cursor.fetchall()
+        reimbursement_list = []
+        for reimbursement in reimbursement_records:
+            reimbursement_list.append(Reimbursement(*reimbursement))
+        return reimbursement_list
+
     def get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where employee_id = %s'
         cursor = connection.cursor()
         cursor.execute(sql, [employee_id])
-        total_amount = cursor.fetchone()
-        return int(total_amount)
-
-    def get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
-        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where decision_date >= %s ' \
-              'and decision_date <= %s'
-        cursor = connection.cursor()
-        cursor.execute(sql, (begin_date, end_date))
         total_amount = cursor.fetchone()
         return int(total_amount)
 
@@ -88,4 +90,10 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
             reimbursement_list.append(Reimbursement(*reimbursement))
         return reimbursement_list
 
-
+    # def get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
+    #     sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where decision_date >=
+    #     %s and decision_date <= %s'
+    #     cursor = connection.cursor()
+    #     cursor.execute(sql, (begin_date, end_date))
+    #     total_amount = cursor.fetchone()
+    #     return int(total_amount)

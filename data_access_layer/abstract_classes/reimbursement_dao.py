@@ -35,7 +35,7 @@ class ReimbursementDAO(ABC):
         pass
 
     @abstractmethod
-    def get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
+    def get_rejected_reimbursements(self) -> List[Reimbursement]:
         pass
 
     @abstractmethod
@@ -45,3 +45,7 @@ class ReimbursementDAO(ABC):
     @abstractmethod
     def get_top_five_highest_amounts(self) -> List[Reimbursement]:
         pass
+
+    # @abstractmethod
+    # def get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
+    #     pass
