@@ -8,11 +8,19 @@ class EmployeePostgresServiceImp(EmployeeService):
     def __init__(self, employee_dao: EmployeePostgresDAO):
         self.employee_dao = employee_dao
 
+    def service_get_employee_by_username(self, user_name: str):
+        employees = self.employee_dao.get_all_employees()
+        for current_employee in employees:
+            if current_employee.user_name == user_name:
+                return self.employee_dao.get_employee_by_username(user_name)
+            raise InvalidCredentialsException("The provided credentials are invalid.")
+
     def service_validate_employee(self, user_name: str, password: str) -> Employee:
-        employee = self.employee_dao.get_employee_by_username(user_name)
-        if employee.user_name == user_name:
-            if employee.user_password == password:
-                return employee
+        employees = self.employee_dao.get_all_employees()
+        for current_employee in employees:
+            if current_employee.user_name == user_name:
+                if current_employee.user_password == password:
+                    return current_employee
         raise InvalidCredentialsException("The provided credentials are invalid.")
 
     def service_get_all_employees(self):

@@ -49,16 +49,16 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         return reimbursement
 
     def get_total_reimbursements_amount(self) -> float:
-        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where status = "approved"'
+        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where status = %s'
         cursor = connection.cursor()
-        cursor.execute(sql)
+        cursor.execute(sql, ['approved'])
         total_amount = cursor.fetchone()
-        return int(total_amount)
+        return float('.'.join(str(ele) for ele in total_amount))
 
     def get_rejected_reimbursements(self) -> List[Reimbursement]:
-        sql = 'select * from "python_reimbursement".reimbursement where status = "rejected" order by employee_id;'
+        sql = 'select * from "python_reimbursement".reimbursement where status = %s order by employee_id;'
         cursor = connection.cursor()
-        cursor.execute(sql)
+        cursor.execute(sql, ["rejected"])
         reimbursement_records = cursor.fetchall()
         reimbursement_list = []
         for reimbursement in reimbursement_records:
@@ -70,20 +70,20 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         cursor = connection.cursor()
         cursor.execute(sql, [employee_id])
         total_amount = cursor.fetchone()
-        return int(total_amount)
+        return float('.'.join(str(ele) for ele in total_amount))
 
     def get_total_reimbursements_amount_by_category(self, category: str) -> float:
         sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where category = %s'
         cursor = connection.cursor()
         cursor.execute(sql, [category])
         total_amount = cursor.fetchone()
-        return int(total_amount)
+        return float('.'.join(str(ele) for ele in total_amount))
 
     def get_top_five_highest_amounts(self) -> List[Reimbursement]:
-        sql = 'select * from "python_reimbursement".reimbursement where status = "approved" order by ' \
+        sql = 'select * from "python_reimbursement".reimbursement where status = %s order by ' \
               'reimbursement_amount desc limit 5'
         cursor = connection.cursor()
-        cursor.execute(sql)
+        cursor.execute(sql, ["approved"])
         reimbursement_records = cursor.fetchall()
         reimbursement_list = []
         for reimbursement in reimbursement_records:

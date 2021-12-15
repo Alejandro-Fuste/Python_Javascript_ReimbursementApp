@@ -11,11 +11,12 @@ class ManagerPostgresServiceImp(ManagerService):
         self.manager_dao = manager_dao
 
     def service_validate_manager(self, user_name: str, password: str) -> Manager:
-        manager = self.manager_dao.get_manager_by_username(user_name)
-        if manager.user_name == user_name:
-            if manager.user_password == password:
-                return manager
-        raise InvalidCredentialsException("The provided credentials are invalid.")
+        managers = self.manager_dao.get_all_managers()
+        for current_manager in managers:
+            if current_manager.user_name == user_name:
+                if current_manager.user_password == password:
+                    return current_manager
+            raise InvalidCredentialsException("The provided credentials are invalid.")
 
     def get_all_managers(self) -> List[Manager]:
         return self.manager_dao.get_all_managers()

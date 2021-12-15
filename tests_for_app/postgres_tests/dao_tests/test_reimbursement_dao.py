@@ -37,14 +37,14 @@ def test_get_total_reimbursements_amount():
     assert total > 0
 
 
-def test_get_total_reimbursements_amount_by_employee():
-    employee_total = reimbursement_dao.get_total_reimbursements_amount_by_employee(1)
-    assert employee_total > 0
-
-
 def test_get_rejected_reimbursements():
     reimbursements = reimbursement_dao.get_rejected_reimbursements()
     assert len(reimbursements) > 1
+
+
+def test_get_total_reimbursements_amount_by_employee():
+    employee_total = reimbursement_dao.get_total_reimbursements_amount_by_employee(1)
+    assert employee_total > 0
 
 
 def test_get_total_reimbursements_amount_by_category():
