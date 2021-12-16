@@ -6,13 +6,13 @@ const login = (data) => {
   const expr = "Employee";
   switch (expr) {
     case "Employee":
-      console.log("Employee");
+      window.location.assign("/employee.html");
       break;
     case "Manager":
-      console.log("Manager");
+      window.location.assign("/manager.html");
       break;
     default:
-      console.log(`Sorry, we are out of ${expr}.`);
+      window.location.assign("/home.html");
   }
 };
 
