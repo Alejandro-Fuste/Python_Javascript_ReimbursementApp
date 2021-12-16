@@ -3,7 +3,10 @@ const formEl = document.querySelector("#loginForm");
 function validateLogin(e) {
   e.preventDefault();
 
-  console.log("Form was submitted");
+  let userName = document.querySelector("#userName").value;
+  let password = document.querySelector("#password").value;
+
+  console.table(userName, password);
 }
 
 formEl.addEventListener("submit", validateLogin);
