@@ -33,3 +33,12 @@ form {
 #submitButton {
   margin: 3% 82% 0 0;
 }
+
+#errorMessage {
+  color: red;
+  margin-top: 4vh;
+}
+
+#hideErrorMessage {
+  display: none;
+}

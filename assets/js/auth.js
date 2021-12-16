@@ -1,9 +1,10 @@
 const login = (data) => {
   // send data retrieve from database to localStorage
   localStorage.setItem("pseudoToken", JSON.stringify(data));
+  const errorEl = document.querySelector("#hideErrorMessage");
 
   // redirect user base the role property in data
-  const expr = "Employee";
+  const expr = "Employ";
   switch (expr) {
     case "Employee":
       window.location.assign("/employee.html");
@@ -12,7 +13,7 @@ const login = (data) => {
       window.location.assign("/manager.html");
       break;
     default:
-      window.location.assign("/home.html");
+      errorEl.setAttribute("id", "errorMessage");
   }
 };
 
