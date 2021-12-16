@@ -1,10 +1,26 @@
 const functionsObject = {
-  validateLogin: (e) => {
+  validateLogin: async (e) => {
     e.preventDefault();
 
     let userName = document.querySelector("#userName").value;
-    let password = document.querySelector("#password").value;
+    let userPassword = document.querySelector("#password").value;
 
-    console.table(userName, password);
+    let loginData = {
+      userName,
+      userPassword,
+    };
+
+    const response = await fetch("http://127.0.0.1:5000/employee", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+    const content = await response.json();
+
+    console.log(content);
   },
 };
