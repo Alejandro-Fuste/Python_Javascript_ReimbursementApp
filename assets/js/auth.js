@@ -1,4 +1,6 @@
 const login = (data) => {
+  const errorEl = document.querySelector("#hideErrorMessage");
+
   // send data retrieve from database to localStorage
   localStorage.setItem("pseudoToken", JSON.stringify(data));
 
@@ -13,7 +15,7 @@ const login = (data) => {
       break;
     default:
       errorEl.setAttribute("id", "errorMessage");
-      errorEl.textContent = "Something went wrong...refresh and try again!";
+      errorEl.textContent = "Opps, something went...refresh and try again!";
   }
 };
 
@@ -24,13 +26,16 @@ const validateCredentials = async (e) => {
 
   let userName = document.querySelector("#userName").value;
   let userPassword = document.querySelector("#password").value;
+  let role = document.querySelector("#role").value;
+
+  let url = `http://127.0.0.1:5000/${role}`;
 
   let loginData = {
     userName,
     userPassword,
   };
 
-  const response = await fetch("http://127.0.0.1:5000/employee", {
+  const response = await fetch(url, {
     method: "POST",
     mode: "cors",
     headers: {
@@ -45,6 +50,7 @@ const validateCredentials = async (e) => {
     login(content);
   } else {
     let content = await response.json();
+    console.log(content.message);
     errorEl.setAttribute("id", "errorMessage");
     errorEl.textContent = content.message;
   }

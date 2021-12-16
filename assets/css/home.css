@@ -30,6 +30,10 @@ form {
   padding: 0px 5vw;
 }
 
+#role {
+  margin: 10px 0 10px 0;
+}
+
 #submitButton {
   margin: 3% 82% 0 0;
 }
