@@ -34,11 +34,11 @@ form {
   margin: 3% 82% 0 0;
 }
 
+#hideErrorMessage {
+  display: none;
+}
+
 #errorMessage {
   color: red;
   margin-top: 4vh;
-}
-
-#hideErrorMessage {
-  display: none;
 }

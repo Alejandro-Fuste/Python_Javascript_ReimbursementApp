@@ -1,10 +1,9 @@
 const login = (data) => {
   // send data retrieve from database to localStorage
   localStorage.setItem("pseudoToken", JSON.stringify(data));
-  const errorEl = document.querySelector("#hideErrorMessage");
 
   // redirect user base the role property in data
-  const expr = "Employ";
+  const expr = data.companyRole;
   switch (expr) {
     case "Employee":
       window.location.assign("/employee.html");
@@ -14,11 +13,14 @@ const login = (data) => {
       break;
     default:
       errorEl.setAttribute("id", "errorMessage");
+      errorEl.textContent = "Something went wrong...refresh and try again!";
   }
 };
 
 const validateCredentials = async (e) => {
   e.preventDefault();
+
+  const errorEl = document.querySelector("#hideErrorMessage");
 
   let userName = document.querySelector("#userName").value;
   let userPassword = document.querySelector("#password").value;
@@ -28,18 +30,22 @@ const validateCredentials = async (e) => {
     userPassword,
   };
 
-  login(loginData);
+  const response = await fetch("http://127.0.0.1:5000/employee", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(loginData),
+  });
 
-  // const response = await fetch("http://127.0.0.1:5000/employee", {
-  //   method: "POST",
-  //   mode: "cors",
-  //   headers: {
-  //     Accept: "application/json",
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(loginData),
-  // });
-  // const content = await response.json();
-
-  // console.log(content);
+  if (response.status === 200) {
+    let content = await response.json();
+    login(content);
+  } else {
+    let content = await response.json();
+    errorEl.setAttribute("id", "errorMessage");
+    errorEl.textContent = content.message;
+  }
 };
