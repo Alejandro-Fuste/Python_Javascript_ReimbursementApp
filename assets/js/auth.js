@@ -1,8 +1,22 @@
-const sendtoLocalStorage = (data) => {
+const login = (data) => {
+  // send data retrieve from database to localStorage
   localStorage.setItem("pseudoToken", JSON.stringify(data));
+
+  // redirect user base the role property in data
+  const expr = "Employee";
+  switch (expr) {
+    case "Employee":
+      console.log("Employee");
+      break;
+    case "Manager":
+      console.log("Manager");
+      break;
+    default:
+      console.log(`Sorry, we are out of ${expr}.`);
+  }
 };
 
-const validateLogin = async (e) => {
+const validateCredentials = async (e) => {
   e.preventDefault();
 
   let userName = document.querySelector("#userName").value;
@@ -13,7 +27,7 @@ const validateLogin = async (e) => {
     userPassword,
   };
 
-  sendtoLocalStorage(loginData);
+  login(loginData);
 
   // const response = await fetch("http://127.0.0.1:5000/employee", {
   //   method: "POST",
