@@ -1,5 +1,5 @@
 const login = (data) => {
-  const errorEl = document.querySelector("#hideErrorMessage");
+  const errorEl = document.querySelector('#hideErrorMessage');
 
   // send data retrieve from database to localStorage
   localStorage.setItem("pseudoToken", JSON.stringify(data));
@@ -14,19 +14,19 @@ const login = (data) => {
       window.location.assign("/manager.html");
       break;
     default:
-      errorEl.setAttribute("id", "errorMessage");
-      errorEl.textContent = "Opps, something went...refresh and try again!";
+      errorEl.setAttribute('id', 'errorMessage');
+      errorEl.textContent = "Opps, something went wrong...refresh and try again!";
   }
 };
 
 const validateCredentials = async (e) => {
   e.preventDefault();
 
-  const errorEl = document.querySelector("#hideErrorMessage");
+  const errorEl = document.querySelector('#hideErrorMessage');
 
   let userName = document.querySelector("#userName").value;
   let userPassword = document.querySelector("#password").value;
-  let role = document.querySelector("#role").value;
+  let role = document.querySelector('#role').value;
 
   let url = `http://127.0.0.1:5000/${role}`;
 
@@ -34,6 +34,8 @@ const validateCredentials = async (e) => {
     userName,
     userPassword,
   };
+
+  
 
   const response = await fetch(url, {
     method: "POST",
@@ -51,7 +53,18 @@ const validateCredentials = async (e) => {
   } else {
     let content = await response.json();
     console.log(content.message);
-    errorEl.setAttribute("id", "errorMessage");
+    errorEl.setAttribute('id', 'errorMessage');
     errorEl.textContent = content.message;
+
   }
+  
 };
+
+const logout = () => {
+  // delete fake token from local storage
+  localStorage.removeItem('pseudoToken');
+
+  // redirect user back to home page
+  window.location.assign('/home.html');
+
+}
