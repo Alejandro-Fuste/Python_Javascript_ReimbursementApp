@@ -1,5 +1,5 @@
 const sendtoLocalStorage = (data) => {
-  console.table(data);
+  localStorage.setItem("pseudoToken", JSON.stringify(data));
 };
 
 const validateLogin = async (e) => {
