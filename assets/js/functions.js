@@ -1,26 +1,30 @@
-const functionsObject = {
-  validateLogin: async (e) => {
-    e.preventDefault();
+const sendtoLocalStorage = (data) => {
+  console.table(data);
+};
 
-    let userName = document.querySelector("#userName").value;
-    let userPassword = document.querySelector("#password").value;
+const validateLogin = async (e) => {
+  e.preventDefault();
 
-    let loginData = {
-      userName,
-      userPassword,
-    };
+  let userName = document.querySelector("#userName").value;
+  let userPassword = document.querySelector("#password").value;
 
-    const response = await fetch("http://127.0.0.1:5000/employee", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginData),
-    });
-    const content = await response.json();
+  let loginData = {
+    userName,
+    userPassword,
+  };
 
-    console.log(content);
-  },
+  sendtoLocalStorage(loginData);
+
+  // const response = await fetch("http://127.0.0.1:5000/employee", {
+  //   method: "POST",
+  //   mode: "cors",
+  //   headers: {
+  //     Accept: "application/json",
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(loginData),
+  // });
+  // const content = await response.json();
+
+  // console.log(content);
 };
