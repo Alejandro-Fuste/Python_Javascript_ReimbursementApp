@@ -29,3 +29,7 @@ form {
   justify-content: center;
   padding: 0px 5vw;
 }
+
+#submitButton {
+  margin: 3% 82% 0 0;
+}
