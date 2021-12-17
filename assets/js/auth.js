@@ -67,4 +67,27 @@ const logout = () => {
   // redirect user back to home page
   window.location.assign('/home.html');
 
+};
+
+const getToken = () => {
+  //   Retrieves the user token from localStorage
+  return JSON.parse(localStorage.getItem("pseudoToken"));
+};
+
+const loggedIn = () => {
+  //   Checks if there is a saved token
+  const token = getToken();
+  return token 
+};
+
+const verifyToken = (access) => {
+  let role = loggedIn();
+   
+    if (role['companyRole'] === access) {
+        window.location.assign('/home.html');  
+    } 
 }
+
+
+
+
