@@ -14,10 +14,15 @@ nameEl.textContent = getName();
 let tokenData = getToken();
 let id = tokenData['employeeId']
 let url = `http://127.0.0.1:5000/reimbursements/${id}`;
-
-// Get all employee reimbursements 
 getData(url);
 
+// Get all categories 
+let categoryUrl = 'http://127.0.0.1:5000/categories';
+getData(categoryUrl);
+
+// Get all managers
+let managersUrl = 'http://127.0.0.1:5000/managers';
+getData(managersUrl);
 
 
 // Logout event listener
