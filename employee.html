@@ -10,9 +10,67 @@
     <title>Employee</title>
 </head>
 <body>
-    <h1>employee</h1>
-    <button id="logoutEl" type="button" class="btn btn-secondary"><i class="fas fa-sign-out-alt">Logout</i></button>
-    <!-- <a href=""></a> -->
+    <header>
+        <h1 id="employeeName"></h1>
+        <button id="logoutEl" type="button" class="btn btn-secondary"><i class="fas fa-sign-out-alt">Logout</i></button>
+    </header>
+
+    <main>
+        <section id="leftSection">
+            <form id='reimbursementForm' class="row g-3 needs-validation" novalidate>
+                <div class="col-md-12">
+                    <label for="validationCustom01" class="form-label">Reimbursement Date</label>
+                    <input type="date" class="form-control" id="validationCustom01" required>
+                    <div class="invalid-feedback">
+                      Please enter a date
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                  <label for="validationCustom01" class="form-label">Reimbursement Amount</label>
+                  <input type="text" class="form-control" id="amountInput" required>
+                  <div class="invalid-feedback">
+                    Please enter a valid amount
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="validationCustom02" class="form-label">Enter reason for reimbursement</label>
+                    <input type="text" class="form-control" id="validationCustom02" required>
+                    <div class="invalid-feedback">
+                      Please enter a valid reason. 
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="validationCustom04" class="form-label">Choose a category</label>
+                    <select class="form-select" id="validationCustom04" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option>...</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a category.
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="validationCustom04" class="form-label">Choose your manager</label>
+                    <select class="form-select" id="validationCustom04" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option>...</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select your manager.
+                    </div>
+                </div>
+
+                <div class="col-12">
+                  <button id='submitButton' class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+              </form>
+        </section>
+    </main>
+    
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="./assets/js/auth.js"></script>

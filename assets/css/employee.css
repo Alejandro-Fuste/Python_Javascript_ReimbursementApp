@@ -1,3 +1,12 @@
 h1 {
   color: blue;
 }
+
+#leftSection {
+  width: 50vw;
+}
+
+#reimbursementForm {
+  display: flex;
+  flex-direction: column;
+}
