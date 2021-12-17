@@ -4,12 +4,23 @@ const getData = async (url) => {
   let data = await response.json();
 
   console.log(data);
+  return data;
 };
 
 const getName = () => {
   let tokenData = getToken();
   return `${tokenData["firstName"]} ${tokenData["lastName"]}`;
 };
+
+const addCategories = (data) => {
+    const selectEl = document.querySelector('#validationCustom04');
+     
+    data.forEach((c) => {
+        let createTag = document.createElement('option');
+        createTag.textContent = c.categoryName;
+        selectEl.appendChild(createTag);
+    })
+}
 
 // validate values for reimbursement
 const validateUserInput = () => {
@@ -45,4 +56,5 @@ const createObject = () => {
     object["managerId"] = 3;
 
    console.table(object);
+   return object
 }
