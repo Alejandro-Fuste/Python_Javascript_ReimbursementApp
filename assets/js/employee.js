@@ -24,6 +24,7 @@ getData(url);
 logoutEl.addEventListener("click", logout);
 formEl.addEventListener("submit", (e) =>{
     e.preventDefault();
-    validateUserInput();
+    // validateUserInput();
+    createObject();
     
 });

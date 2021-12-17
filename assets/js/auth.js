@@ -24,8 +24,8 @@ const validateCredentials = async (e) => {
 
   const errorEl = document.querySelector('#hideErrorMessage');
 
-  let userName = document.querySelector("#userName").value;
-  let userPassword = document.querySelector("#password").value;
+  let userName = document.querySelector("#userName").value.trim();
+  let userPassword = document.querySelector("#password").value.trim();
   let role = document.querySelector('#role').value;
 
   let url = `http://127.0.0.1:5000/${role}`;

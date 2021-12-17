@@ -19,40 +19,30 @@ const validateUserInput = () => {
   let validated = {};
 
   validate.forEach((c) => {
-      console.log(c.value);
-      console.log(typeof(c.value));
     if (c.value === "" || c.value <= 0) {
       c.style.borderColor = "red";
       c.nextElementSibling.style.display = 'block';
     } else if (c.value > 0) {
         validated[c.dataset.name] = parseFloat(c.value);
     } else {
-        validated[c.dataset.name] = c.value;
+        validated[c.dataset.name] = c.value.trim();
     }
   });
-
-  console.table(validated);
+  
+  return validated;
 };
 
-// Create new reimbursement
+const createObject = () => {
+    //values user entered into form
+   let object = validateUserInput();
 
-    // get values from user (reimbursementAmount, category, reimbursementReason, reimbursementDate)
-    // validate those values
+    // the rest of the values needed to create new reimbursment
+    object["reimbursementId"] = 0;
+    object["status"] = "pending";
+    object["decisionDate"] = "null";
+    object["reason"] = "null";
+    object["employeeId"] = 3;
+    object["managerId"] = 3;
 
-    // set default value of 0 for reimbursementId
-    // set default value of pending for status
-    // set default value of null for decisionDate and reason 
-    // enter ids for employee and manager
-
-    /*{
-        "reimbursementId": 10,
-        "reimbursementAmount": "1000.00",
-        "category": "Hotel",
-        "reimbursementReason": "Hotel stay on Coruscant",
-        "reimbursementDate": "12-15-2021",
-        "status": "pending",
-        "decisionDate": "null",
-        "reason": "null",
-        "employeeId": 3,
-        "managerId": 1
-    }*/
+   console.table(object);
+}
