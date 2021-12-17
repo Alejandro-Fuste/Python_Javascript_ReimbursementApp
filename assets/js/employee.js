@@ -18,28 +18,7 @@ let url = `http://127.0.0.1:5000/reimbursements/${id}`;
 // Get all employee reimbursements 
 getData(url);
 
-// Create new reimbursement
 
-    // get values from user (reimbursementAmount, category, reimbursementReason, reimbursementDate)
-    // validate those values
-
-    // set default value of 0 for reimbursementId
-    // set default value of pending for status
-    // set default value of null for decisionDate and reason 
-    // enter ids for employee and manager
-
-    /*{
-        "reimbursementId": 10,
-        "reimbursementAmount": "1000.00",
-        "category": "Hotel",
-        "reimbursementReason": "Hotel stay on Coruscant",
-        "reimbursementDate": "12-15-2021",
-        "status": "pending",
-        "decisionDate": "null",
-        "reason": "null",
-        "employeeId": 3,
-        "managerId": 1
-    }*/
 
 // Logout event listener
 logoutEl.addEventListener("click", logout);
