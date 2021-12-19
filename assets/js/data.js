@@ -200,6 +200,14 @@ const createReimbursement = async (url,data) => {
       }
 };
 
+const allButtonDisplay = () => {
+    let liElements = document.querySelectorAll("li");
+    let liArray = [...liElements];
+
+    liArray.forEach(c => c.style.display = 'block');
+    
+};
+
 const approvedButtonDisplay = () => {
     let liElements = document.querySelectorAll("li");
     let liArray = [...liElements];
@@ -207,4 +215,25 @@ const approvedButtonDisplay = () => {
 
     filtered.forEach(c => c.style.display = 'none');
     
-}
+};
+
+
+const deniendButtonDisplay = () => {
+    console.log('denied clicked');
+    // let liElements = document.querySelectorAll("li");
+    // let liArray = [...liElements];
+    // let filtered = liArray.filter(c => c.id != 'approved');
+
+    // filtered.forEach(c => c.style.display = 'none');
+    
+};
+
+const pendingButtonDisplay = () => {
+    console.log('pending clicked');
+    // let liElements = document.querySelectorAll("li");
+    // let liArray = [...liElements];
+    // let filtered = liArray.filter(c => c.id != 'approved');
+
+    // filtered.forEach(c => c.style.display = 'none');
+    
+};
