@@ -199,3 +199,12 @@ const createReimbursement = async (url,data) => {
     
       }
 };
+
+const approvedButtonDisplay = () => {
+    let liElements = document.querySelectorAll("li");
+    let liArray = [...liElements];
+    let filtered = liArray.filter(c => c.id != 'approved');
+
+    filtered.forEach(c => c.style.display = 'none');
+    
+}
