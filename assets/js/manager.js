@@ -11,7 +11,7 @@ nameEl.textContent = getName();
 
 // Get all reimbursements 
 const url = `http://127.0.0.1:5000/reimbursements/all`
-fetch(url).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(error));
+fetch(url).then(res => res.json()).then(data => addReimbursementsManager(data)).catch(err => console.log(error));
 
 
 // Logout event listener

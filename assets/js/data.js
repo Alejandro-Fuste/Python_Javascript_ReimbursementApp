@@ -80,6 +80,66 @@ const addManagers = (data) => {
     })
 };
 
+const addReimbursementsManager = (data) => {
+    const selectEl = document.querySelector('#reimbUL');
+
+    data.forEach((c) => {
+        let buttonDiv = document.createElement('div');
+
+        let createLiTag = document.createElement('li');
+        createLiTag.setAttribute('id', c.status);
+
+        let createDivTag = document.createElement('div');
+        createDivTag.setAttribute('id', 'reimDiv');
+
+        let createIdTag = document.createElement('p');
+        createIdTag.setAttribute('id', 'reimP');
+        createIdTag.textContent = `Id: ${c.reimbursementId}`;
+
+        if (c.status === 'pending') {
+            let createButton = document.createElement('button');
+            createButton.setAttribute('id', 'pendingButton');
+            createButton.textContent = '+';
+            buttonDiv.append(createIdTag, createButton);
+            createDivTag.append(buttonDiv);
+        } else {
+            createDivTag.append(createIdTag)
+        }
+
+        let createStatusTag = document.createElement('p');
+        createStatusTag.setAttribute('id', 'reimP');
+        createStatusTag.textContent = `Status: ${c.status}`;
+
+        let createDateTag = document.createElement('p');
+        createDateTag.setAttribute('id', 'reimP');
+        createDateTag.textContent = `Created Date: ${c.reimbursementDate}`;
+
+        let createCategoryTag = document.createElement('p');
+        createCategoryTag.setAttribute('id', 'reimP');
+        createCategoryTag.textContent = `Category: ${c.category}`;
+
+        let createAmountTag = document.createElement('p');
+        createAmountTag.setAttribute('id', 'reimP');
+        createAmountTag.textContent = `Amount: ${c.reimbursementAmount}`;
+
+        let createReimbursementReasonTag = document.createElement('p');
+        createReimbursementReasonTag.setAttribute('id', 'reimP');
+        createReimbursementReasonTag.textContent = `Reason for reimbursement: ${c.reimbursementReason}`;
+
+        let createDecisionDateTag = document.createElement('p');
+        createDecisionDateTag.setAttribute('id', 'reimP');
+        createDecisionDateTag.textContent = `Decision Date: ${c.decisionDate}`;
+
+        let createReasonTag = document.createElement('p');
+        createReasonTag.setAttribute('id', 'reimP');
+        createReasonTag.textContent = `Manager comment: ${c.reason}`;
+
+        createDivTag.append(createStatusTag, createDateTag, createCategoryTag, createAmountTag, createReimbursementReasonTag, createDecisionDateTag, createReasonTag);
+        createLiTag.appendChild(createDivTag);
+        selectEl.appendChild(createLiTag);
+    })
+};
+
 // validate values for reimbursement
 const validateUserInput = () => {
   let inputs = document.querySelectorAll("input");
