@@ -23,35 +23,35 @@ const addReimbursements = (data) => {
 
         let createIdTag = document.createElement('p');
         createIdTag.setAttribute('id', 'reimP');
-        createIdTag.textContent = c.reimbursementId;
+        createIdTag.textContent = `Id: ${c.reimbursementId}`;
 
         let createStatusTag = document.createElement('p');
         createStatusTag.setAttribute('id', 'reimP');
-        createStatusTag.textContent = c.status;
+        createStatusTag.textContent = `Status: ${c.status}`;
 
         let createDateTag = document.createElement('p');
         createDateTag.setAttribute('id', 'reimP');
-        createDateTag.textContent = c.reimbursementDate;
+        createDateTag.textContent = `Created Date: ${c.reimbursementDate}`;
 
         let createCategoryTag = document.createElement('p');
         createCategoryTag.setAttribute('id', 'reimP');
-        createCategoryTag.textContent = c.category;
+        createCategoryTag.textContent = `Category: ${c.category}`;
 
         let createAmountTag = document.createElement('p');
         createAmountTag.setAttribute('id', 'reimP');
-        createAmountTag.textContent = c.reimbursementAmount;
+        createAmountTag.textContent = `Amount: ${c.reimbursementAmount}`;
 
         let createReimbursementReasonTag = document.createElement('p');
         createReimbursementReasonTag.setAttribute('id', 'reimP');
-        createReimbursementReasonTag.textContent = c.reimbursementReason;
+        createReimbursementReasonTag.textContent = `Reason for reimbursement: ${c.reimbursementReason}`;
 
         let createDecisionDateTag = document.createElement('p');
         createDecisionDateTag.setAttribute('id', 'reimP');
-        createDecisionDateTag.textContent = c.decisionDate;
+        createDecisionDateTag.textContent = `Decision Date: ${c.decisionDate}`;
 
         let createReasonTag = document.createElement('p');
         createReasonTag.setAttribute('id', 'reimP');
-        createReasonTag.textContent = c.reason;
+        createReasonTag.textContent = `Manager comment: ${c.reason}`;
 
         createDivTag.append(createIdTag, createStatusTag, createDateTag, createCategoryTag, createAmountTag, createReimbursementReasonTag, createDecisionDateTag, createReasonTag);
         createLiTag.appendChild(createDivTag);
