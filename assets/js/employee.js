@@ -30,6 +30,10 @@ fetch(managersUrl).then(res => res.json()).then(data => addManagers(data));
 logoutEl.addEventListener("click", logout);
 formEl.addEventListener("submit", (e) =>{
     e.preventDefault();
-    createObject();
+
+    let reimbursementUrl = 'http://127.0.0.1:5000/reimbursement';
+    let data = createObject();
+
+    createReimbursement(reimbursementUrl, data);
     
 });
