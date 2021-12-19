@@ -14,7 +14,6 @@ nameEl.textContent = getName();
 let tokenData = getToken();
 let id = tokenData['employeeId']
 let reimbursementsUrl = `http://127.0.0.1:5000/reimbursements/${id}`;
-// getData(url);
 fetch(reimbursementsUrl).then(res => res.json()).then(data => addReimbursements(data)).catch(err => console.log(err));
 
 // Get all categories 
