@@ -23,7 +23,7 @@ fetch(categoryUrl).then(res => res.json()).then(data => addCategories(data));
 
 // Get all managers
 let managersUrl = 'http://127.0.0.1:5000/managers';
-getData(managersUrl);
+fetch(managersUrl).then(res => res.json()).then(data => addManagers(data));
 
 
 // Logout event listener

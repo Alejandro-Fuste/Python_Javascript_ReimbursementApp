@@ -22,6 +22,17 @@ const addCategories = (data) => {
     })
 }
 
+const addManagers = (data) => {
+    const selectEl = document.querySelector('#validationCustom05');
+    console.log(data)
+    data.forEach((c) => {
+        let createTag = document.createElement('option');
+        createTag.setAttribute('data-id', c.managerId);
+        createTag.textContent = `${c['firstName']} ${c['lastName']}`;
+        selectEl.appendChild(createTag);
+    })
+}
+
 // validate values for reimbursement
 const validateUserInput = () => {
   let inputs = document.querySelectorAll("input");
@@ -30,9 +41,12 @@ const validateUserInput = () => {
   let validated = {};
 
   validate.forEach((c) => {
+      console.log()
     if (c.value === "" || c.value <= 0) {
       c.style.borderColor = "red";
       c.nextElementSibling.style.display = 'block';
+    } else if (c.dataset.name === 'managerId') {
+        validated[c.dataset.name] = parseInt(document.querySelector('[data-id]').dataset.id);
     } else if (c.value > 0) {
         validated[c.dataset.name] = parseFloat(c.value);
     } else {
@@ -52,8 +66,8 @@ const createObject = () => {
     object["status"] = "pending";
     object["decisionDate"] = "null";
     object["reason"] = "null";
-    object["employeeId"] = 3;
-    object["managerId"] = 3;
+    object["employeeId"] = JSON.parse(localStorage.getItem('pseudoToken')).employeeId;
+    
 
    console.table(object);
    return object
