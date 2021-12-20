@@ -15,12 +15,16 @@ const categoryEl = document.querySelector('#categorySelect');
 nameEl.textContent = getName();
 
 // Get all reimbursements 
-const url = `http://127.0.0.1:5000/reimbursements/all`
+const url = `http://127.0.0.1:5000/reimbursements/all`;
 fetch(url).then(res => res.json()).then(data => addReimbursementsManager(data)).catch(err => errorAlert);
 
 // Get total reimbursement
-const totalUrl = `http://127.0.0.1:5000/reimbursements/total`
+const totalUrl = `http://127.0.0.1:5000/reimbursements/total`;
 fetch(totalUrl).then(res => res.json()).then(data => displayTotalReimbursements(data)).catch(err => errorAlert)
+
+// Get reject list
+const rejectUrl = `http://127.0.0.1:5000/reimbursements/rejected`;
+fetch(rejectUrl).then(res => res.json()).then(data => displayRejectedList(data)).catch(err => errorAlert);
 
 // All button event listener
 allEl.addEventListener('click', allButtonDisplay);

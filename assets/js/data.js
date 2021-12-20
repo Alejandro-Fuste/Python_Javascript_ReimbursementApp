@@ -261,6 +261,12 @@ const displayTotalReimbursements = (data) => {
   totalEl.textContent = data.total;
 };
 
+const displayRejectedList = (data) => {
+    const rejectEl = document.querySelector("#totalRejectReimb");
+    rejectEl.textContent = data.total;
+
+}
+
 const displayTotalReimbursementByEmployee = () => {
   const empEl = document.querySelector("#employeeSelect").value;
 
@@ -282,9 +288,10 @@ const displayTotalReimbursementByCategory = () => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       let totalEl = document.querySelector("#totalCatReimb");
       totalEl.textContent = data.total;
     })
     .catch((err) => errorAlert);
 };
+
+
