@@ -15,7 +15,7 @@ nameEl.textContent = getName();
 
 // Get all reimbursements 
 const url = `http://127.0.0.1:5000/reimbursements/all`
-fetch(url).then(res => res.json()).then(data => addReimbursementsManager(data)).catch(err => console.log(error));
+fetch(url).then(res => res.json()).then(data => addReimbursementsManager(data)).catch(err => alert("Opps, something is wrong with the server connection"));
 
 // All button event listener
 allEl.addEventListener('click', allButtonDisplay);

@@ -209,6 +209,7 @@ const allButtonDisplay = () => {
 };
 
 const approvedButtonDisplay = () => {
+    allButtonDisplay();
     let liElements = document.querySelectorAll("li");
     let liArray = [...liElements];
     let filtered = liArray.filter(c => c.id != 'approved');
@@ -219,21 +220,21 @@ const approvedButtonDisplay = () => {
 
 
 const deniendButtonDisplay = () => {
-    console.log('denied clicked');
-    // let liElements = document.querySelectorAll("li");
-    // let liArray = [...liElements];
-    // let filtered = liArray.filter(c => c.id != 'approved');
+    allButtonDisplay();
+    let liElements = document.querySelectorAll("li");
+    let liArray = [...liElements];
+    let filtered = liArray.filter(c => c.id != 'rejected');
 
-    // filtered.forEach(c => c.style.display = 'none');
+    filtered.forEach(c => c.style.display = 'none');
     
 };
 
 const pendingButtonDisplay = () => {
-    console.log('pending clicked');
-    // let liElements = document.querySelectorAll("li");
-    // let liArray = [...liElements];
-    // let filtered = liArray.filter(c => c.id != 'approved');
+    allButtonDisplay();
+    let liElements = document.querySelectorAll("li");
+    let liArray = [...liElements];
+    let filtered = liArray.filter(c => c.id != 'pending');
 
-    // filtered.forEach(c => c.style.display = 'none');
+    filtered.forEach(c => c.style.display = 'none');
     
 };
