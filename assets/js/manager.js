@@ -22,9 +22,13 @@ fetch(url).then(res => res.json()).then(data => addReimbursementsManager(data)).
 const totalUrl = `http://127.0.0.1:5000/reimbursements/total`;
 fetch(totalUrl).then(res => res.json()).then(data => displayTotalReimbursements(data)).catch(err => errorAlert)
 
-// Get reject list
+// Get rejected total
 const rejectUrl = `http://127.0.0.1:5000/reimbursements/rejected`;
-fetch(rejectUrl).then(res => res.json()).then(data => displayRejectedList(data)).catch(err => errorAlert);
+fetch(rejectUrl).then(res => res.json()).then(data => displayRejectedAmount(data)).catch(err => errorAlert);
+
+// Get top five spenders 
+const topUrl = `http://127.0.0.1:5000/reimbursements/topFive`
+fetch(topUrl).then(res => res.json()).then(data => displayTopSpenders(data)).catch(err => errorAlert);
 
 // All button event listener
 allEl.addEventListener('click', allButtonDisplay);

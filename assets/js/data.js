@@ -261,7 +261,7 @@ const displayTotalReimbursements = (data) => {
   totalEl.textContent = data.total;
 };
 
-const displayRejectedList = (data) => {
+const displayRejectedAmount = (data) => {
     const rejectEl = document.querySelector("#totalRejectReimb");
     rejectEl.textContent = data.total;
 
@@ -293,5 +293,83 @@ const displayTotalReimbursementByCategory = () => {
     })
     .catch((err) => errorAlert);
 };
+
+const displayTopSpenders = (data) => {
+    const selectEl = document.querySelector("#spendersList");
+
+    data.forEach((c) => {
+        let buttonDiv = document.createElement("div");
+    
+        let createLiTag = document.createElement("li");
+        createLiTag.setAttribute("id", c.status);
+    
+        let createDivTag = document.createElement("div");
+        createDivTag.setAttribute("id", "reimDiv");
+    
+        let createIdTag = document.createElement("p");
+        createIdTag.setAttribute("id", "reimP");
+        createIdTag.textContent = `Id: ${c.reimbursementId}`;
+    
+        if (c.employeeId === 1) {
+          let createButton = document.createElement("p");
+          createButton.setAttribute("id", "reimP");
+          createButton.textContent = `Employee: Rey Skywalker`;
+          buttonDiv.append(createIdTag, createButton);
+          createDivTag.append(buttonDiv);
+        } else if (c.employeeId === 2) {
+            let createButton = document.createElement("p");
+            createButton.setAttribute("id", "reimP");
+            createButton.textContent = `Employee: Ben Solo`;
+            buttonDiv.append(createIdTag, createButton);
+            createDivTag.append(buttonDiv);
+        } else if (c.employeeId === 3) {
+            let createButton = document.createElement("p");
+            createButton.setAttribute("id", "reimP");
+            createButton.textContent = `Employee: Admiral Ackbar`;
+            buttonDiv.append(createIdTag, createButton);
+            createDivTag.append(buttonDiv);
+        }
+    
+        let createStatusTag = document.createElement("p");
+        createStatusTag.setAttribute("id", "reimP");
+        createStatusTag.textContent = `Status: ${c.status}`;
+    
+        let createDateTag = document.createElement("p");
+        createDateTag.setAttribute("id", "reimP");
+        createDateTag.textContent = `Created Date: ${c.reimbursementDate}`;
+    
+        let createCategoryTag = document.createElement("p");
+        createCategoryTag.setAttribute("id", "reimP");
+        createCategoryTag.textContent = `Category: ${c.category}`;
+    
+        let createAmountTag = document.createElement("p");
+        createAmountTag.setAttribute("id", "reimP");
+        createAmountTag.textContent = `Amount: ${c.reimbursementAmount}`;
+    
+        let createReimbursementReasonTag = document.createElement("p");
+        createReimbursementReasonTag.setAttribute("id", "reimP");
+        createReimbursementReasonTag.textContent = `Reason for reimbursement: ${c.reimbursementReason}`;
+    
+        let createDecisionDateTag = document.createElement("p");
+        createDecisionDateTag.setAttribute("id", "reimP");
+        createDecisionDateTag.textContent = `Decision Date: ${c.decisionDate}`;
+    
+        let createReasonTag = document.createElement("p");
+        createReasonTag.setAttribute("id", "reimP");
+        createReasonTag.textContent = `Manager comment: ${c.reason}`;
+    
+        createDivTag.append(
+          createStatusTag,
+          createDateTag,
+          createCategoryTag,
+          createAmountTag,
+          createReimbursementReasonTag,
+          createDecisionDateTag,
+          createReasonTag
+        );
+        createLiTag.appendChild(createDivTag);
+        selectEl.appendChild(createLiTag);
+      });
+}
 
 
