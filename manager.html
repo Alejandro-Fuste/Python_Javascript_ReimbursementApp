@@ -15,7 +15,7 @@
         <button id="logoutEl" type="button" class="btn btn-secondary"><i class="fas fa-sign-out-alt">Logout</i></button>
     </header>
 
-    <main>
+    <main id='managerMain'>
         <section id="reimbSection">
             <h3 id="reimbH3">Reimbursements</h3>
 
@@ -38,7 +38,13 @@
 
             <div id="totalEmpDiv">
                 <h6>Total Reimbursements by Employee</h6>
-                <p id="totalAppReimb"></p>
+                <select class="form-select" id='employeeSelect' aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">Rey Skywalker</option>
+                    <option value="2">Ben Solo</option>
+                    <option value="3">Admirl Ackbar</option>
+                </select>
+                <p id="totalEmpReimb"></p>
 
             </div>
 

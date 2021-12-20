@@ -8,14 +8,18 @@ const allEl = document.querySelector('#allButton');
 const approvedEl = document.querySelector('#approvedButton');
 const deniedEl = document.querySelector('#deniedButton');
 const pendingEl = document.querySelector('#pendingButton');
+const empEl = document.querySelector("#employeeSelect");
 
 // Add name to element
 nameEl.textContent = getName();
 
-
 // Get all reimbursements 
 const url = `http://127.0.0.1:5000/reimbursements/all`
-fetch(url).then(res => res.json()).then(data => addReimbursementsManager(data)).catch(err => alert("Opps, something is wrong with the server connection"));
+fetch(url).then(res => res.json()).then(data => addReimbursementsManager(data)).catch(err => errorAlert);
+
+// Get total reimbursement
+const totalUrl = `http://127.0.0.1:5000/reimbursements/total`
+fetch(totalUrl).then(res => res.json()).then(data => displayTotalReimbursements(data)).catch(err => errorAlert)
 
 // All button event listener
 allEl.addEventListener('click', allButtonDisplay);
@@ -31,3 +35,6 @@ pendingEl.addEventListener('click', pendingButtonDisplay);
 
 // Logout button event listener
 logoutEl.addEventListener("click", logout);
+
+// Get total reimbursement by employee
+empEl.addEventListener('change', displayTotalReimbursementByEmployee);
