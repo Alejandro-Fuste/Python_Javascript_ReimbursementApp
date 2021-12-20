@@ -261,15 +261,29 @@ const displayTotalReimbursements = (data) => {
   totalEl.textContent = data.total;
 };
 
-const displayTotalReimbursementByEmployee = (data) => {
+const displayTotalReimbursementByEmployee = () => {
   const empEl = document.querySelector("#employeeSelect").value;
 
   const totalEmpUrl = `http://127.0.0.1:5000/reimbursements/total/${empEl}`;
-  
+
   fetch(totalEmpUrl)
     .then((res) => res.json())
     .then((data) => {
       let totalEl = document.querySelector("#totalEmpReimb");
+      totalEl.textContent = data.total;
+    })
+    .catch((err) => errorAlert);
+};
+
+const displayTotalReimbursementByCategory = () => {
+  const categoryEl = document.querySelector("#categorySelect").value;
+  const url = `http://127.0.0.1:5000/reimbursements/total/category/${categoryEl}`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      let totalEl = document.querySelector("#totalCatReimb");
       totalEl.textContent = data.total;
     })
     .catch((err) => errorAlert);

@@ -9,6 +9,7 @@ const approvedEl = document.querySelector('#approvedButton');
 const deniedEl = document.querySelector('#deniedButton');
 const pendingEl = document.querySelector('#pendingButton');
 const empEl = document.querySelector("#employeeSelect");
+const categoryEl = document.querySelector('#categorySelect');
 
 // Add name to element
 nameEl.textContent = getName();
@@ -38,3 +39,6 @@ logoutEl.addEventListener("click", logout);
 
 // Get total reimbursement by employee
 empEl.addEventListener('change', displayTotalReimbursementByEmployee);
+
+// Get total reimbursement by category
+categoryEl.addEventListener('change', displayTotalReimbursementByCategory);
