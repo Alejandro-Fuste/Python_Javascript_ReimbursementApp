@@ -1,8 +1,187 @@
-h1 {
-  color: green;
+* {
+  margin: 0;
+}
+
+#container {
+  padding: 1rem 1rem 1rem 0rem;
+  display: flex;
+}
+
+#leftBar {
+  display: flex;
+  width: 9vw;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+#logo {
+  width: 10vw;
+}
+
+#logoutEl {
+  background-color: white;
+  color: #463f57;
+  border: white;
+  font-size: 2vw;
+}
+
+#inactiveLink {
+  opacity: 0.4;
+  color: #463f57;
+  font-size: 2vw;
+  margin: 2rem 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h4 {
+  margin-left: 1.8rem;
+}
+
+#fakeSearch {
+  width: 30vw;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  color: lightgrey;
+  text-align: end;
+  margin: 0 2rem 0 2rem;
+}
+
+#searchGlass {
+  padding-right: 5px;
+}
+#rightSideHeaderDiv {
+  display: flex;
+  width: 30vw;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#managerName {
+  color: grey;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.5rem;
+  margin-top: 16px;
+}
+
+#headerIcons {
+  width: 5vw;
+  height: 10vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #b7b4c1;
+  font-size: 2vw;
+  margin: 1rem 0;
+}
+
+#thumbNail {
+  background-image: url(../images/lukeSkywalker.jpeg);
+  background-color: #cccccc;
+  width: 5vw;
+  height: 10vh;
+  background-position: unset;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
 }
 
 #managerMain {
   display: flex;
+  justify-content: space-around;
+  background-color: #edebeb;
+  padding: 1rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  flex-direction: column;
+  width: 90vw;
+  height: 95vh;
+}
 
+#articleContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: solid 1px darkgrey;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+#reimbSection,
+#statsSection {
+  width: 40vw;
+  height: 74vh;
+  overflow: scroll;
+}
+
+#reimbSection {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgb(64, 64, 162);
+  background: linear-gradient(
+    91deg,
+    rgba(64, 64, 162, 1) 35%,
+    rgba(117, 118, 228, 1) 100%
+  );
+  color: darkgray;
+}
+
+#idDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#changeStatusButton {
+  background-color: transparent;
+  border-color: darkgrey;
+  color: darkgray;
+}
+
+.btn-group {
+  display: flex;
+}
+
+#allButton,
+#approvedButton,
+#deniedButton,
+#pendingButton {
+  border-color: darkgrey;
+  color: darkgrey;
+}
+
+#statsSection {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+#reimbH3 {
+  margin-bottom: 1rem;
+}
+
+#successMessage {
+  color: green;
+  display: none;
+}
+
+#failureMessage {
+  color: red;
+  display: none;
 }

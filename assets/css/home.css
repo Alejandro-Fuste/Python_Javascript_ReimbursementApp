@@ -12,11 +12,17 @@
 }
 
 main {
-  width: 50vw;
+  width: 100vw;
   height: 50vh;
   display: flex;
   align-content: center;
+  padding: 0 50px;
   justify-content: center;
+}
+
+#leftSection {
+  display: flex;
+  align-items: center;
 }
 
 form {
@@ -36,7 +42,8 @@ form {
 
 #submitButton {
   margin-top: 10px;
-  width: 40%;
+  background-color: #463f57;
+  border-color: #463f57;
 }
 
 #hideErrorMessage {

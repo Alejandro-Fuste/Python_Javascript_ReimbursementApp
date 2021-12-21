@@ -1,12 +1,153 @@
-h1 {
-  color: blue;
+#container {
+  padding: 1rem 1rem 1rem 0rem;
+  display: flex;
+  font-family: "Poppins", sans-serif;
 }
 
+#leftBar {
+  display: flex;
+  width: 9vw;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+#logo {
+  width: 10vw;
+}
+
+#logoutEl {
+  background-color: white;
+  color: #463f57;
+  border: white;
+  font-size: 2vw;
+}
+
+#inactiveLink {
+  opacity: 0.4;
+  color: #463f57;
+  font-size: 2vw;
+  margin: 2rem 0;
+}
+
+/* main section */
+#employeeMain {
+  background-color: #edebeb;
+  padding: 1rem;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  flex-direction: column;
+  width: 90vw;
+  height: 95vh;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+h4 {
+  margin-left: 1.8rem;
+}
+
+#fakeSearch {
+  width: 30vw;
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+  color: lightgrey;
+  text-align: end;
+  margin: 0 2rem 0 2rem;
+}
+
+#searchGlass {
+  padding-right: 5px;
+}
+#rightSideHeaderDiv {
+  display: flex;
+  width: 30vw;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#employeeName {
+  color: grey;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.5rem;
+  margin-top: 16px;
+}
+
+#headerIcons {
+  width: 5vw;
+  height: 10vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: #b7b4c1;
+  font-size: 2vw;
+  margin: 1rem 0;
+}
+
+#thumbNail {
+  background-image: url(../images/reySkywalker.jpg);
+  background-color: #cccccc;
+  width: 5vw;
+  height: 10vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+/* article container */
+#articleContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* right & left section */
+#rightSection,
 #leftSection {
-  width: 50vw;
+  width: 40vw;
+  height: 74vh;
+  overflow: scroll;
+}
+
+/* section */
+#leftSection {
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgb(64, 64, 162);
+  background: linear-gradient(
+    91deg,
+    rgba(64, 64, 162, 1) 35%,
+    rgba(117, 118, 228, 1) 100%
+  );
+  color: darkgray;
 }
 
 #reimbursementForm {
   display: flex;
   flex-direction: column;
+}
+
+#submitButton {
+  background-color: transparent;
+  border-color: white;
+}
+
+#formTitle,
+#pastTitle {
+  font-size: 1.5rem;
+  border-bottom: solid 1px;
+}
+
+/* right section */
+#rightSection {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
 }

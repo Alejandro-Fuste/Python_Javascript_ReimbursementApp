@@ -10,6 +10,9 @@ const approveDenyReimbursement = async () => {
   let object = JSON.parse(localStorage.getItem("updateObj"));
   const url = `http://127.0.0.1:5000/reimbursements`
 
+  const successEl = document.querySelector('#successMessage');
+  const failureEl = document.querySelector('#failureMessage');
+
   const dateEl = document.querySelector("#validationCustom01");
   const statusEl = document.querySelector("#validationCustom02");
   const reasonEl = document.querySelector("#validationCustom03");
@@ -23,7 +26,6 @@ const approveDenyReimbursement = async () => {
       object["status"] = statusEl.value;
       object["reason"] = reasonEl.value;
       object["decisionDate"] = dateEl.value;
-      console.table(object);
     }
   });
 
@@ -39,12 +41,11 @@ const approveDenyReimbursement = async () => {
 
     if (response.status === 200) {
       let content = await response.json();
-      alert(content);
-      location.reload();
-
+      successEl.style.display = 'block';
+      setTimeout(() => location.reload(), 3000);   
     } else {
       let content = await response.json();
-      alert(content.message);
+      successEl.style.display = 'block';
     }
 };
 
@@ -131,6 +132,7 @@ const addReimbursementsManager = (data) => {
 
   data.forEach((c) => {
     let buttonDiv = document.createElement("div");
+    buttonDiv.setAttribute('id', "idDiv");
 
     let createLiTag = document.createElement("li");
     createLiTag.setAttribute("id", c.status);
