@@ -10,6 +10,7 @@ const deniedEl = document.querySelector('#deniedButton');
 const pendingEl = document.querySelector('#pendingButton');
 const empEl = document.querySelector("#employeeSelect");
 const categoryEl = document.querySelector('#categorySelect');
+// let updateObj = {};
 
 // Add name to element
 nameEl.textContent = getName();
@@ -50,3 +51,24 @@ empEl.addEventListener('change', displayTotalReimbursementByEmployee);
 
 // Get total reimbursement by category
 categoryEl.addEventListener('change', displayTotalReimbursementByCategory);
+
+// Change status of reimbursement
+document.addEventListener('click',function(e){
+    if(e.target && e.target.id == 'changeStatusButton'){
+
+          let object = {};
+
+          object['reimbursementId'] = e.target.dataset.id;
+          object['reimbursementAmount'] = e.target.dataset.amount;
+          object["category"] = e.target.dataset.category;
+          object["reimbursementReason"] = e.target.dataset.reimbursementreason;
+          object["reimbursementDate"] = e.target.dataset.reimbursementdate;
+          object["employeeId"] = e.target.dataset.employeeid;
+          object["managerId"] = e.target.dataset.managerid;
+
+        localStorage.setItem('updateObj', JSON.stringify(object))
+        
+     }
+ });
+
+
