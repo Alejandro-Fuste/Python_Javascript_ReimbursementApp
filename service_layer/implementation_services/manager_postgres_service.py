@@ -18,5 +18,5 @@ class ManagerPostgresServiceImp(ManagerService):
                     return current_manager
             raise InvalidCredentialsException("The provided credentials are invalid.")
 
-    def get_all_managers(self) -> List[Manager]:
+    def service_get_all_managers(self) -> List[Manager]:
         return self.manager_dao.get_all_managers()

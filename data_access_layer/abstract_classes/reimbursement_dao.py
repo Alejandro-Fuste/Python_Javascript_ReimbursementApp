@@ -35,7 +35,7 @@ class ReimbursementDAO(ABC):
         pass
 
     @abstractmethod
-    def get_rejected_reimbursements(self) -> List[Reimbursement]:
+    def get_total_reject_reimbursements_amount(self) -> float:
         pass
 
     @abstractmethod

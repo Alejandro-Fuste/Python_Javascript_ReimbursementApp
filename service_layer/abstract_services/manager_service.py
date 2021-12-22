@@ -11,5 +11,5 @@ class ManagerService(ABC):
         pass
 
     @abstractmethod
-    def get_all_managers(self) -> List[Manager]:
+    def service_get_all_managers(self) -> List[Manager]:
         pass

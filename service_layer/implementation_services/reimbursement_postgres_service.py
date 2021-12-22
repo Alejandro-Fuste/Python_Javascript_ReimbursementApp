@@ -13,7 +13,7 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
     def service_create_new_reimbursement_request(self, reimbursement: Reimbursement) -> Reimbursement:
         reimbursements = self.reimbursement_dao.get_all_reimbursement_requests()
         for current_reimbursement in reimbursements:
-            if current_reimbursement.decision_date == reimbursement.decision_date:
+            if current_reimbursement.reimbursement_id == reimbursement.reimbursement_id:
                 raise DuplicateReimbursementException("This reimbursement has already been created.")
         created_reimbursement = self.reimbursement_dao.create_new_reimbursement_request(reimbursement)
         return created_reimbursement
@@ -38,8 +38,8 @@ class ReimbursementPostgresServiceImp(ReimbursementService):
     def service_get_total_reimbursements_amount(self) -> float:
         return self.reimbursement_dao.get_total_reimbursements_amount()
 
-    def get_rejected_reimbursements(self) -> List[Reimbursement]:
-        return self.reimbursement_dao.get_rejected_reimbursements()
+    def service_get_total_reject_reimbursements_amount(self) -> float:
+        return self.reimbursement_dao.get_total_reject_reimbursements_amount()
 
     def service_get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         reimbursements = self.reimbursement_dao.get_all_reimbursement_requests()

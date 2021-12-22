@@ -20,7 +20,7 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         return reimbursement
 
     def get_all_reimbursement_requests(self) -> List[Reimbursement]:
-        sql = 'select * from "python_reimbursement".reimbursement'
+        sql = 'select * from "python_reimbursement".reimbursement order by reimbursement_id'
         cursor = connection.cursor()
         cursor.execute(sql)
         reimbursement_records = cursor.fetchall()
@@ -55,15 +55,12 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
         total_amount = cursor.fetchone()
         return float('.'.join(str(ele) for ele in total_amount))
 
-    def get_rejected_reimbursements(self) -> List[Reimbursement]:
-        sql = 'select * from "python_reimbursement".reimbursement where status = %s order by employee_id;'
+    def get_total_reject_reimbursements_amount(self) -> float:
+        sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where status = %s'
         cursor = connection.cursor()
-        cursor.execute(sql, ["rejected"])
-        reimbursement_records = cursor.fetchall()
-        reimbursement_list = []
-        for reimbursement in reimbursement_records:
-            reimbursement_list.append(Reimbursement(*reimbursement))
-        return reimbursement_list
+        cursor.execute(sql, ['rejected'])
+        total_amount = cursor.fetchone()
+        return float('.'.join(str(ele) for ele in total_amount))
 
     def get_total_reimbursements_amount_by_employee(self, employee_id: int) -> float:
         sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where employee_id = %s'
@@ -90,10 +87,3 @@ class ReimbursementPostgresDAO(ReimbursementDAO):
             reimbursement_list.append(Reimbursement(*reimbursement))
         return reimbursement_list
 
-    # def get_total_reimbursements_amount_by_month(self, begin_date: str, end_date: str) -> float:
-    #     sql = 'select sum(reimbursement_amount) from "python_reimbursement".reimbursement where decision_date >=
-    #     %s and decision_date <= %s'
-    #     cursor = connection.cursor()
-    #     cursor.execute(sql, (begin_date, end_date))
-    #     total_amount = cursor.fetchone()
-    #     return int(total_amount)
