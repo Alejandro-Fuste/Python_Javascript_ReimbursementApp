@@ -1,26 +1,13 @@
 # Python/Javascript Reimbursement Application [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-<table><tr><td>
-<img src="./images/finishedGif.gif" alt="finished gif" style="border-radius:16px" width="838" height="380"/>
-</table></tr></td>
-
-## Description
-
-This application creates an expense reimbursement system for a small company/group. The app allows employees to create reimbursement requests, and it allows all managers view these requests. Managers can approve or deny reimbursement request, and they can leave a message for the employee.
-
-## User Story
-
-```
-
-AS A business owner
-
-I WANT a system to create, track, and reimburse expense
-
-SO THAT employees can be accurately compensated
-
-```
-
 ## Table of Contents
+- [Description](#description)
+
+- [Technologies Used](#technologies_used)
+
+- [Features](#features)
+
+- [User Story](#user_story)
 
 - [Installation](#installation)
 
@@ -33,6 +20,45 @@ SO THAT employees can be accurately compensated
 - [Tests](#tests)
 
 - [Questions](#questions)
+
+## Description
+
+This application creates an expense reimbursement system for a small company/group. The app allows employees to create reimbursement requests, and it allows all managers view these requests. Managers can approve or deny reimbursement request, and they can leave a message for the employee.
+
+## Technologies Used
+- Python
+- Javascript
+- HTML
+- CSS
+- PostgresQL
+- Flask
+- Postman
+- Behave
+- Selenium
+- Gherkin
+
+## Features
+List of features ready and TODOs for future development
+
+- Employee can add and view reimbursements
+- Manager can approve/deny reimbursements, view past reimbursements, and view statistics
+
+To-do list:
+
+- Clean up UI
+- Add more functionality to profiles
+
+## User Story
+
+```
+
+AS A business owner
+
+I WANT a system to create, track, and reimburse expense
+
+SO THAT employees can be accurately compensated
+
+```
 
 ## Installation
 
